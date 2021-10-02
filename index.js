@@ -143,11 +143,14 @@ class MixOrMatch {
 }
 
 function ready(){
-  // remove cards for PC
-  var cardsPC = Array.from(document.getElementsByClassName('forPC'));
-  cardsPC.forEach(function(card){
-    card.remove();
-  })
+  if(window.matchMedia('(max-width:767px)').matches){
+    // remove cards PC on SP
+    var cardsPC = Array.from(document.getElementsByClassName('forPC'));
+    cardsPC.forEach(function(card){
+      card.remove();
+    })
+  }
+  
   var $overlaysText = Array.from(document.getElementsByClassName('overlay-text'));
   var $cards = Array.from(document.getElementsByClassName('card'));
   var game = new MixOrMatch(50, $cards);
