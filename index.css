@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'creep';
+  src: url(Assets/Fonts/Creepy.woff);
+}
+@font-face {
+  font-family: 'creep2';
+  src: url(Assets/Fonts/Creepy2.woff);
+}
+@font-face {
+  font-family: 'lunacy';
+  src: url(Assets/Fonts/Lunacy.woff);
+}
+@font-face {
+  font-family: 'lunacy2';
+  src: url(Assets/Fonts/Lunacy.woff2);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: radial-gradient(white, black);
+  height: 100vh;
+  cursor: url(Assets/Cursors/Ghost.cur), auto;
+}
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 860px;
+  height: 100%;
+  margin: 0 auto;
+}
+h1 {
+  font-family: creep, serif;
+  font-size: 90px;
+  margin: 0;
+  text-align: center;
+  color: rgb(233, 208, 208);
+  margin-bottom: 30px;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-family: lunacy, serif;
+  font-size: 60px;
+}
+.card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -20px;
+  perspective: 500px;
+}
+.card {
+  position: relative;
+  margin: 0 20px 20px 0;
+  cursor: url(Assets/Cursors/GhostHover.cur), auto;
+  width: 125px;
+  height: 175px;
+}
+.card:hover .card-front {
+  transform: rotateY(0);
+}
+.card:hover .card-back {
+  transform: rotateY(-180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  overflow: hidden;
+  transition: all .3s linear;
+  backface-visibility: hidden;
+}
+.card-front {
+  transform: rotateY(180deg);
+  background: #fff;
+}
+/* .card-back:hover .web {
+  width: 70px;
+}
+.card-back:hover .web {
+  width: 52px;
+}
+.card-back:hover .main-img {
+  transform: translateY(0);
+} */
+.card-back {
+  transform: rotateY(0);
+  background: rgba(0, 0, 0, 0.8);
+}
+.web {
+  position: absolute;
+  transition: all .2s linear;
+  width: 47px;
+}
+.web-top-left {
+  top: 0;
+  left: 0;
+  transform: rotate(270deg);
+}
+.web-top-right {
+  top: 0;
+  right: 0;
+}
+.web-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: rotate(180deg);
+}
+.web-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+.card-back .main-img {
+  align-self: flex-start;
+  transform: translateY(-10px);
+  transition: transform .2s linear;
+}
